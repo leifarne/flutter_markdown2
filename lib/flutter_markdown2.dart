@@ -8,3 +8,5 @@ library flutter_markdown2;
 export 'src/builder.dart';
 export 'src/style_sheet.dart';
 export 'src/widget.dart';
+export 'syntaxes/img_syntax.dart';
+export 'syntaxes/table_html_syntax.dart';
