@@ -485,7 +485,7 @@ class MarkdownBuilder implements md.NodeVisitor {
           textAlign: align,
           color: color,
         );
-        _tables.single.rows.last.children!.add(child);
+        _tables.single.rows.last.children.add(child);
       } else if (tag == 'a') {
         _linkHandlers.removeLast();
       }

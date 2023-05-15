@@ -56,7 +56,7 @@ class ImgBlockSyntax extends md.BlockSyntax {
 
   @override
   md.Node? parse(md.BlockParser parser) {
-    RegExpMatch m = pattern.firstMatch(parser.current)!;
+    RegExpMatch m = pattern.firstMatch(parser.current.content)!;
     final element = ImgInlineSyntax.parseInlineImage(m[1]!);
 
     parser.advance();

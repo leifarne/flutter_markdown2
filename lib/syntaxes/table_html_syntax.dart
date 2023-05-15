@@ -20,14 +20,14 @@ class TableHtmlSyntax extends md.BlockSyntax {
   @override
   md.Node? parse(md.BlockParser parser) {
     // Collect the style=color attribute, which we will use as the table header color.
-    int? color = _parseStyle(parser.current);
+    int? color = _parseStyle(parser.current.content);
 
     // Eat the <table> tag.
     parser.advance();
 
     // Eat until we hit _endPattern.
     while (!parser.isDone && !parser.matches(_endPattern)) {
-      _childLines.add(parser.current);
+      _childLines.add(parser.current.content);
       parser.advance();
     }
 
@@ -196,8 +196,8 @@ class TableHtmlSyntax extends md.BlockSyntax {
   }
 
   @override
-  List<String?> parseChildLines(md.BlockParser parser) {
-    final children = <String>[];
+  List<md.Line?> parseChildLines(md.BlockParser parser) {
+    final children = <md.Line>[];
     for (int i = 0; i < 2; i++) {
       children.add(parser.current);
       parser.advance();
